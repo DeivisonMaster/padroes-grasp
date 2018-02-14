@@ -1,0 +1,39 @@
+package especialista;
+
+public class ItemVenda {
+	private Produto produto;
+	private int quantidade;
+
+	public ItemVenda(Produto produto) throws Exception {
+		if (produto != null) {
+			this.produto = produto;
+		} else {
+			throw new Exception("Produto não pode ser nulo");
+		}
+	}
+
+	/* subtotal = quantidade do item multiplicado pelo preço do produto */
+	public double obterSubTotal() {
+		return this.quantidade * produto.getPreco();
+	}
+
+	public Produto getProduto() {
+		return produto;
+	}
+
+	public void setProduto(Produto produto) {
+		this.produto = produto;
+	}
+
+	public int getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(int quantidade) throws Exception {
+		if (quantidade > 0) {
+			this.quantidade = quantidade;
+		} else {
+			throw new Exception("A quantidade não pode ser menor ou igual a 0");
+		}
+	}
+}
